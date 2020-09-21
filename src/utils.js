@@ -2,7 +2,7 @@ import { authWithEmailAndPassword, getAuthForm } from './auth'
 import { Contacts } from './Contacts';
 
 export function isValid (value) {
-	return value.length >= 3;
+	return value.length >= 1;
 }
 const contactsFromStorage = JSON.parse(localStorage.getItem('contacts'));
 
@@ -31,12 +31,16 @@ export function getFromStorageContacts () {
 	return JSON.parse(localStorage.getItem('contacts') || '[]');
 }
 export function editContact (index){
-	const domList = document.querySelector('#list');
-	const item = document.querySelector(`#list-item-${index}`);
 	const itemData = contactsFromStorage[index];
+	const domList = document.querySelector('#list');
 	domList.querySelector(`#list-item-${index}`).innerHTML = toCard(itemData, index, {editMode: true});
 
-	document.querySelector(`#save-button-${index}`).addEventListener("click",() => editRequest(index));
+	const saveButton = document.querySelector(`#save-button-${index}`);
+	const currentItem = document.querySelector(`#list-item-${index}`);
+	const nameInput = currentItem.querySelector('.input-name');
+
+	nameInput.addEventListener('input', () => saveButton.disabled = !isValid(nameInput.value));
+	saveButton.addEventListener("click",() => editRequest(index));
 }
 
 export function removeContact (index) {
