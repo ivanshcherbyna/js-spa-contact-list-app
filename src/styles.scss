@@ -1,0 +1,122 @@
+/**
+ * Body CSS
+ */
+
+html,
+body {
+    height: 100%;
+}
+
+html,
+body,
+input,
+textarea,
+button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+
+/**
+ * Sidebar CSS
+ */
+
+#sidebar {
+    background-color: #7fe556;
+    padding: 15px;
+}
+
+@media (min-width: 768px) {
+    #sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 180px;
+        height: 100%;
+        padding-top: 30px;
+    }
+}
+
+
+/**
+ * Content CSS
+ */
+@media (min-width: 768px) {
+    #content {
+        margin-left: 180px;
+    }
+}
+
+.author{
+    color: white;
+    font-size: .8rem;
+}
+.mui-btn--fab{
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
+
+.mui-btn {
+    &.edit-button, &.save-button{
+        margin-left: 1rem;
+    }
+}
+.list-item{
+    .date-label{
+        font-size: .7rem;
+        color: #7b7c80;
+    }
+    .contact-text{
+        color: #4834ff;
+        &:hover{
+            color: #000000;
+        }
+    }
+    &.editable-item{
+        display: flex;
+        .mui-textfield{
+            margin-left: 1rem;
+            max-width: 350px;
+            &:first-child{
+                margin-left: 0;
+            }
+        }
+
+    }
+    &.flexable{
+        .mui-textfield {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .save-button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.modal{
+    max-width: 600px;
+    max-height: 300px;
+    margin: 100px auto;
+    overflow-y: auto;
+    background: #fff;
+
+    h1{
+        text-align: center;
+    }
+    .modal-content{
+        padding: 1rem;
+    }
+}
+
+.error{
+    color: red;
+}
+.info{
+    color: #ffb333;
+}
