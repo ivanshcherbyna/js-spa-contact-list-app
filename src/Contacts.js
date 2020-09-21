@@ -17,8 +17,7 @@ export class Contacts{
 				contact.id = responce.name;
 			return contact;
 		})
-			// .then(setToStorageContact);
-			.finally(setToStorageContact);
+			.then(setToStorageContact);
 	}
 	static edit(contact, index){
 		// return fetch('https://js-podcast-app-1944b.firebaseio.com/Contacts.json',{
